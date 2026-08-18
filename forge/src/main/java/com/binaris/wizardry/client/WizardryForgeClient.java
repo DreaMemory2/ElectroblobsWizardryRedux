@@ -49,6 +49,22 @@ public class WizardryForgeClient {
             ItemBlockRenderTypes.setRenderLayer(EBBlocks.ACACIA_LECTERN.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(EBBlocks.DARK_OAK_LECTERN.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(EBBlocks.IMBUEMENT_ALTAR.get(), RenderType.cutoutMipped());
+
+            ItemBlockRenderTypes.setRenderLayer(EBBlocks.FIRE_RUNESTONE_PEDESTAL.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(EBBlocks.ICE_RUNESTONE_PEDESTAL.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(EBBlocks.LIGHTNING_RUNESTONE_PEDESTAL.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(EBBlocks.NECROMANCY_RUNESTONE_PEDESTAL.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(EBBlocks.EARTH_RUNESTONE_PEDESTAL.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(EBBlocks.SORCERY_RUNESTONE_PEDESTAL.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(EBBlocks.HEALING_RUNESTONE_PEDESTAL.get(), RenderType.cutout());
+
+            ItemBlockRenderTypes.setRenderLayer(EBBlocks.FIRE_RUNESTONE.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(EBBlocks.ICE_RUNESTONE.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(EBBlocks.LIGHTNING_RUNESTONE.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(EBBlocks.NECROMANCY_RUNESTONE.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(EBBlocks.EARTH_RUNESTONE.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(EBBlocks.SORCERY_RUNESTONE.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(EBBlocks.HEALING_RUNESTONE.get(), RenderType.cutout());
         });
     }
 }

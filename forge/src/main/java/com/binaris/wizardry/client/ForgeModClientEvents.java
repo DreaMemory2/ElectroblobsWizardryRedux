@@ -2,11 +2,15 @@ package com.binaris.wizardry.client;
 
 import com.binaris.wizardry.WizardryMainMod;
 import com.binaris.wizardry.api.content.item.ICastItem;
+import com.binaris.wizardry.client.model.GlowingOverlayModel;
 import com.binaris.wizardry.setup.registries.client.EBKeyBinding;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
@@ -79,6 +83,22 @@ public class ForgeModClientEvents {
         event.register(EBKeyBinding.PREVIOUS_SPELL);
         for (int i = 0; i < EBKeyBinding.SPELL_QUICK_ACCESS.length; i++) {
             event.register(EBKeyBinding.SPELL_QUICK_ACCESS[i]);
+        }
+    }
+
+    @SubscribeEvent
+    public static void bake(ModelEvent.ModifyBakingResult event) {
+        for (ResourceLocation location : event.getModels().keySet()) {
+            if (location.getNamespace().equals(WizardryMainMod.MOD_ID)) {
+                BakedModel original = event.getModels().get(location);
+                if (location.getPath().contains("runestone") ||
+                        location.getPath().contains("runestone_pedestal") ||
+                        location.getPath().contains("imbuement_altar")) {
+                    event.getModels().put(location, new GlowingOverlayModel(original, "overlay"));
+                } else if (location.getPath().contains("spectral_block")) {
+                    event.getModels().put(location, new GlowingOverlayModel(original, "spectral_block"));
+                }
+            }
         }
     }
 }

@@ -14,6 +14,8 @@ import com.binaris.wizardry.setup.registries.EBEntities;
 import com.google.common.collect.Maps;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.renderer.block.BlockRenderDispatcher;
+import net.minecraft.client.renderer.block.ModelBlockRenderer;
 import net.minecraft.client.renderer.entity.BlazeRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.SlimeRenderer;
@@ -22,6 +24,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.Blaze;
+import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
@@ -30,6 +33,7 @@ import java.util.function.Supplier;
 
 public final class EBRenderers {
     private static final Map<DeferredObject<EntityType<? extends Entity>>, EntityRendererProvider<?>> providers = Maps.newHashMap();
+    private static final Map<DeferredObject<Block>, ModelBlockRenderer> blockProviders = Maps.newHashMap();
 
     private EBRenderers() {
     }
@@ -121,5 +125,9 @@ public final class EBRenderers {
     @SuppressWarnings("unchecked")
     private static <T extends Entity> void registerEntityRender(DeferredObject<EntityType<T>> entityType, EntityRendererProvider provider) {
         providers.put((DeferredObject<EntityType<? extends Entity>>) (Object) entityType, provider);
+    }
+
+    private static <T extends Block> void registerBlockRender(DeferredObject<Block> block, ModelBlockRenderer provider) {
+
     }
 }

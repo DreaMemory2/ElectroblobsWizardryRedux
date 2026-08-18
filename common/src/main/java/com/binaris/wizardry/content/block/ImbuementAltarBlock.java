@@ -40,7 +40,7 @@ public class ImbuementAltarBlock extends BaseEntityBlock {
     private static final VoxelShape AABB = Shapes.box(0.0, 0.0, 0.0, 1.0, 0.75, 1.0);
 
     public ImbuementAltarBlock() {
-        super(BlockBehaviour.Properties.copy(Blocks.STONE).strength(-1.0F, 6000000.0F).lightLevel((state) -> 1));
+        super(BlockBehaviour.Properties.copy(Blocks.STONE).lightLevel(state -> state.getValue(ACTIVE) ? 6 : 0).strength(-1.0F, 6000000.0F));
         this.registerDefaultState(this.stateDefinition.any().setValue(ACTIVE, false));
     }
 

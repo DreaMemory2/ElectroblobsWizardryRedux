@@ -2,6 +2,7 @@
   "parent": "ebwizardry:block/runestone",
   "textures": {
     "rune": "ebwizardry:block/runestone_earth_1",
-    "side": "ebwizardry:block/runestone_earth_0"
+    "side": "ebwizardry:block/runestone_earth_0",
+    "overlay": "ebwizardry:block/runestone_earth_1_overlay"
   }
 }

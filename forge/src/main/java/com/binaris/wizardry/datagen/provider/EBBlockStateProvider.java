@@ -113,7 +113,9 @@ public final class EBBlockStateProvider extends BlockStateProvider {
         models().withExistingParent(name, "ebwizardry:block/runestone_pedestal")
                 .texture("side", "ebwizardry:block/%s".formatted(textureName))
                 .texture("top", "ebwizardry:block/%s_0".formatted(topBottomTexture))
-                .texture("bottom", "ebwizardry:block/%s_0".formatted(topBottomTexture));
+                .texture("bottom", "ebwizardry:block/%s_0".formatted(topBottomTexture))
+                .texture("overlay", "ebwizardry:block/%s_overlay".formatted(textureName))
+                .renderType("cutout");
 
         itemModels().getBuilder(name).parent(this.itemModels().getExistingFile(new ResourceLocation(WizardryMainMod.MOD_ID, "item/runestone_pedestal_item")))
                 .texture("side", "ebwizardry:block/%s".formatted(textureName))
@@ -142,8 +144,9 @@ public final class EBBlockStateProvider extends BlockStateProvider {
 
             models().withExistingParent(modelName, "ebwizardry:block/runestone")
                     .texture("side", "ebwizardry:block/%s_0".formatted(textureName))
-                    .texture("rune", "ebwizardry:block/%s_%d".formatted(textureName, i));
-
+                    .texture("rune", "ebwizardry:block/%s_%d".formatted(textureName, i))
+                    .texture("overlay", "ebwizardry:block/%s_%d_overlay".formatted(textureName, i))
+                    .renderType("cutout");
             // Y rotations
             for (int y = 0; y < 360; y += 90) {
                 ConfiguredModel.Builder<?> builder = ConfiguredModel.builder()
